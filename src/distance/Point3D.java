@@ -41,7 +41,21 @@ public class Point3D {
     return z;
   }
 
-  public boolean equals(Point3D p) {
-    return x == p.x && y == p.y && z == p.z;
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    Point3D point3D = (Point3D) obj;
+    return x == point3D.x && y == point3D.y && z == point3D.z;
   }
+
+  @Override
+  public int hashCode() {
+    int result = 17; // 一个初始的非零值，任意选择
+    result = 31 * result + x; // 31 是个常用的质数，用于生成独特的哈希值
+    result = 31 * result + y;
+    result = 31 * result + z;
+    return result;
+  }
+
 }

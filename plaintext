@@ -1,0 +1,14 @@
+First run:
+Displacement = 1.7320508075688772
+Prof. Keith is on the move! His Velocity = 0.34641016151377546
+Encountered an error: Elapsed time must be greater than 0. Provided: 0.0
+
+Second run:
+Displacement = 1.7320508075688772
+Encountered an error: Elapsed time must be greater than 0. Provided: 0.0
+
+The first run is good. The first velocity calculation ran successfully using elapsedTime = 5.
+The second calculation failed because elapsedTime was 0,
+which is invalid. The program threw an IllegalArgumentException.
+
+The second run is incomplete. The program exited early, so the second calculation did not execute.
