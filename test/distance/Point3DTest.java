@@ -9,10 +9,14 @@ import static org.junit.Assert.assertFalse;
 
 /**
  * Test class for the Point3D class.
- * Covers constructors, distance calculation, getters, and equality.
+ * Tests constructors, methods, and equality logic.
  */
 public class Point3DTest {
 
+  /**
+   * Tests the constructors of the Point3D class.
+   * Verifies the default, parameterized, and copy constructors.
+   */
   @Test
   public void testConstructor() {
     // Test default constructor
@@ -35,14 +39,21 @@ public class Point3DTest {
     assertEquals(4, point4.getZ());
   }
 
+  /**
+   * Tests the distanceTo method.
+   * Verifies the Euclidean distance between two points.
+   */
   @Test
   public void testDistanceTo() {
     Point3D point1 = new Point3D(4, 1, 3);
     Point3D point2 = new Point3D(4, 4, 7);
-    // Distance = sqrt((0)^2 + (3)^2 + (4)^2) = 5.0
     assertEquals(5.0, point1.distanceTo(point2), 0.01);
   }
 
+  /**
+   * Tests the getter methods.
+   * Verifies getX, getY, and getZ return correct coordinates.
+   */
   @Test
   public void testGetters() {
     Point3D point = new Point3D(1, 2, 3);
@@ -51,34 +62,39 @@ public class Point3DTest {
     assertEquals(3, point.getZ());
   }
 
+  /**
+   * Tests the equals method.
+   * Verifies equality logic for Point3D objects.
+   */
   @Test
   public void testEquals() {
-    // Test equality for the same coordinates
     Point3D point1 = new Point3D(1, 1, 1);
     Point3D point2 = new Point3D(1, 1, 1);
     assertTrue(point1.equals(point2));
     assertEquals(point1, point2);
 
-    // Test inequality for different coordinates
+    // Test inequality
     Point3D point3 = new Point3D(2, 2, 2);
     assertFalse(point1.equals(point3));
     assertNotEquals(point1, point3);
 
-    // Test comparison with null
+    // Test with null
     assertFalse(point1.equals(null));
 
-    // Test comparison with an object of a different type
+    // Test with different type
     assertFalse(point1.equals("NotAPoint3D"));
   }
 
+  /**
+   * Tests the hashCode method.
+   * Verifies consistent hash code generation for Point3D objects.
+   */
   @Test
   public void testHashCode() {
-    // Test hashCode consistency
     Point3D point1 = new Point3D(1, 1, 1);
     Point3D point2 = new Point3D(1, 1, 1);
     assertEquals(point1.hashCode(), point2.hashCode());
 
-    // Test hashCode difference for different coordinates
     Point3D point3 = new Point3D(2, 2, 2);
     assertNotEquals(point1.hashCode(), point3.hashCode());
   }
